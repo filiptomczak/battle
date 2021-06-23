@@ -13,6 +13,14 @@ body{
     border-radius: 10px;
     padding: 20px;
 }
+.bonus{
+    display: inline;
+    font-size: 0.8rem;
+    background-color: #CF0000;
+    color: whitesmoke;
+    padding: 2px 5px;
+    border-radius: 5px;
+}
 .btns{
     margin-top:20px;
 }

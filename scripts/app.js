@@ -31,8 +31,7 @@ function onStrong(){
     endRound();
 }
 function endRound(){
-    const attackValue=monsterAttack();
-    writeToLog("MONSTER_ATTACK",attackValue);
+    monsterAttack();    
 
     let currentMonsterHP=progressMonster.value;
     let currentPlayerHP=progressPlayer.value;
@@ -48,7 +47,8 @@ function endRound(){
     }
 }
 function monsterAttack(){
-    handleMonsterAttack(MONSTER_ATTACK);
+    const attackValue=handleMonsterAttack(MONSTER_ATTACK);
+    writeToLog("MONSTER_ATTACK",attackValue);
 }
 btnAttack.addEventListener('click',onAttack);
 btnStrongAttack.addEventListener('click',onStrong);

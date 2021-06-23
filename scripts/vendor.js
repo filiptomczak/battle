@@ -3,6 +3,7 @@ let INITIALIZE=true;
 let PLAYER_INITIAL_HP=100;
 let MONSTER_INITIAL_HP=100;
 let HEAL_COUNTER=0;
+let BONUS=true;
 
 const btnAttack=document.getElementById("attackBtn");
 const btnStrongAttack=document.getElementById("strongAttackBtn");
@@ -11,13 +12,15 @@ const btnLog=document.getElementById("logBtn");
 
 const progressPlayer=document.getElementById("playerHealth");
 const progressMonster=document.getElementById("monsterHealth");
-
+const bonusIcon=document.getElementById("bonus");
 function init(){
     if(INITIALIZE){
-        PLAYER_INITIAL_HP=prompt("set your initial hp");
-        MONSTER_INITIAL_HP=prompt("set monster initial hp");
+        //PLAYER_INITIAL_HP=prompt("set your initial hp");
+        //MONSTER_INITIAL_HP=prompt("set monster initial hp");
         HEAL_COUNTER=0;
         btnHeal.classList.remove("deactivateBtn");
+        //bonusIcon.style.visibility="visible";
+
         if(isNaN(PLAYER_INITIAL_HP)||PLAYER_INITIAL_HP<=0) PLAYER_INITIAL_HP=100;
         if(isNaN(MONSTER_INITIAL_HP)||MONSTER_INITIAL_HP<=0) MONSTER_INITIAL_HP=100;
 
@@ -31,6 +34,7 @@ function init(){
 function handlePlayerAttack(attackValue){
     attackValue=Math.floor(Math.random()*attackValue)+1;
     progressMonster.value-=attackValue;
+    return attackValue;
 }
 function handlePlayerHeal(healValue){
     if(HEAL_COUNTER<4){
@@ -40,11 +44,22 @@ function handlePlayerHeal(healValue){
     }else{
         btnHeal.classList.add("deactivateBtn");
     }
+    return healValue;
 }
 function handleMonsterAttack(attackValue){
     attackValue=Math.floor(Math.random()*attackValue)+1;
     progressPlayer.value-=attackValue;
+    if(BONUS && progressPlayer.value===0){
+        let answer=window.confirm("DO YOU WANT TO USE YOUR BONUS LIFE? (only once for a game)");
+        if(answer){
+            BONUS=false;
+            progressPlayer.value=PLAYER_INITIAL_HP;
+            bonusIcon.style.visibility="hidden";
+            alert("YOUR BONUS WAS CONSUMED, KILL HIM!");
+        }
+    }
     checkHP(progressPlayer.value);
+    return attackValue;
 }
 function checkHP(hp){
     if(hp<0.3*PLAYER_INITIAL_HP){
