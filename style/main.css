@@ -24,7 +24,7 @@ body{
     background-color: #C62A88;
     color: whitesmoke;
     transition: 0.2s;
-    margin: 10px auto;
+    margin: 5px auto;
     padding: 10px;
 }
 .btn:hover{
@@ -58,4 +58,16 @@ progress {
   progress[value]::-moz-progress-bar {
     background-color: #1EAE98;    
     transition: all 0.2s ease-out;
+  }
+
+  .redHP{
+    background-color: #CF0000 !important;  
+  }
+  .deactivateBtn{
+      opacity: 0.6;
+  }
+  .deactivateBtn:hover{
+    cursor: not-allowed;
+    background-color: #C62A88;
+    opacity: 0.6;
   }
