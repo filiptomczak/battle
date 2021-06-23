@@ -1,0 +1,61 @@
+body{
+    font-family: 'Roboto', sans-serif;
+    background-color: #150485;
+    color:#590995;
+    text-align: center;
+}
+#card{
+    position: relative;
+    top: 25%;
+    background-color: whitesmoke;
+    width: 400px;
+    margin: 0 auto;
+    border-radius: 10px;
+    padding: 20px;
+}
+.btns{
+    margin-top:20px;
+}
+.btn{
+    font-size: 1.3rem;
+    width: 80%;
+    border-radius: 10px;
+    border: none;
+    background-color: #C62A88;
+    color: whitesmoke;
+    transition: 0.2s;
+    margin: 10px auto;
+    padding: 10px;
+}
+.btn:hover{
+    background-color: #72147E;
+    transition: 0.2s;
+    cursor: pointer;
+}
+
+progress {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    width: 80%;
+    height: 2rem;
+    color: #ff0062;
+    border: 1px solid #1EAE98;
+  }
+  
+  progress[value]::-webkit-progress-bar,
+  progress[value] {
+    background-color: #eee;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.25) inset;
+    border: 1px solid #1EAE98;
+  }
+  
+  progress[value]::-webkit-progress-value {
+    background-color: #1EAE98;
+    transition: all 0.2s ease-out;
+  }
+  
+  progress[value]::-moz-progress-bar {
+    background-color: #1EAE98;    
+    transition: all 0.2s ease-out;
+  }
